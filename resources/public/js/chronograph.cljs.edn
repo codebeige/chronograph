@@ -1,3 +1,2 @@
 {:require [chronograph.sketch]
- :init-fns [chronograph.sketch/init]
  :compiler-options {:asset-path "js/chronograph.out"}}
