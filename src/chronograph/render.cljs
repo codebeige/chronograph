@@ -5,8 +5,11 @@
   (q/frame-rate 60)
   (q/color-mode :hsb))
 
+(defn clear []
+  (q/background 255 0))
+
 (defn draw [state]
-  (q/background 240)
+  (clear)
   (q/fill (:color state) 255 255)
   (let [angle (:angle state)
         x (* 150 (q/cos angle))
