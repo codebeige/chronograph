@@ -49,7 +49,7 @@
    (serve)
    (watch)
    (cljs-repl)
-   (reload)
+   (reload :on-jsload 'chronograph.sketch/reset)
    (cljs :optimizations :none
          :source-map true
          :compiler-options {:preloads '[chronograph.dev]})))
