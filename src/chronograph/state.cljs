@@ -1,10 +1,9 @@
 (ns chronograph.state
-  (:refer-clojure :exclude [update]))
+  (:require [chronograph.dimensions :as dimensions]
+            [quil.core :as q]))
 
 (defn init []
-  {:color 0
-   :angle 0})
+  {:dimensions (dimensions/init (q/width) (q/height))})
 
 (defn tick [state]
-  {:color (mod (+ (:color state) 0.7) 255)
-   :angle (+ (:angle state) 0.1)})
+  state)
