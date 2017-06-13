@@ -2,16 +2,16 @@
   (:require [chronograph.state :as state]
             [chronograph.render :as render]
             [chronograph.viewport :as viewport]
-            [quil.core :as quil]
+            [quil.core :as q]
             [quil.sketch :as sketch]
             [quil.middleware :as middleware]))
 
 (defn setup []
   (render/init)
-  (state/init))
+  (state/init (q/width) (q/height)))
 
 (defn reset []
-  (quil/sketch
+  (q/sketch
     :host "chronograph"
     :size (viewport/size)
     :setup setup

@@ -1,9 +1,14 @@
 (ns chronograph.state
   (:require [chronograph.dimensions :as dimensions]
-            [quil.core :as q]))
+            [chronograph.marks :as marks]
+            [chronograph.time :as time]))
 
-(defn init []
-  {:dimensions (dimensions/init (q/width) (q/height))})
+(defn current-count []
+  (let [t (time/now)]
+    (+ (* 60 (time/seconds t)) (time/thirds t))))
+
+(defn init [w h]
+  (assoc (dimensions/init w h) :marks []))
 
 (defn tick [state]
-  state)
+  (assoc state :marks (marks/take (current-count))))
