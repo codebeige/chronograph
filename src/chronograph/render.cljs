@@ -9,13 +9,12 @@
 
 (defn draw [{:keys [margin weight length offset group row block section marks]}]
   (clear)
-  (q/with-translation margin
-    (q/stroke 0)
-    (q/stroke-weight weight)
-    (q/stroke-cap :square)
-    (doseq [[s b r g i] marks]
-      (let [x (+ (* b block) (* g group) (* i offset))
-            y (+ (* s section) (* r row))]
-        (if (< i 4)
-          (q/line x y x (+ y length))
-          (q/line (- x group) (+ y (* 0.5 row)) x (+ y (* 0.2 row))))))))
+  (q/stroke 0)
+  (q/stroke-weight weight)
+  (q/stroke-cap :square)
+  (doseq [[s b r g i] marks]
+    (let [x (+ (first margin) (* b block) (* g group) (* i offset))
+          y (+ (second margin) (* s section) (* r row))]
+      (if (< i 4)
+        (q/line x y x (+ y length))
+        (q/line (- x group) (+ y (* 0.5 row)) x (+ y (* 0.2 row)))))))
