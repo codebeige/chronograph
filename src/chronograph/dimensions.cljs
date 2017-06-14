@@ -5,18 +5,19 @@
     [(* r w) (* r h)]))
 
 (defn bounding-box [w h]
-  (scale-to-fit [31 16] (map #(* 0.9 %) [w h])))
+  (scale-to-fit [18 10] (map #(* 0.9 %) [w h])))
 
 (defn init [vw vh]
   (let [[width height] (bounding-box vw vh)
         weight         (/ width 460)
-        length         (* 7.3 weight)
+        length         (* 7.4 weight)
         offset         (* 2.5 weight)]
-    {:margin (map #(/ (- %1 %2) 2) [vw vh] [width height])
-     :weight weight
-     :length length
-     :offset offset
-     :group (* 5 offset)
-     :row (* 1.5 length)
-     :block (* 63 offset)
-     :section (* 18 length)}))
+    {:box     [width height]
+     :margin  (map #(/ (- %1 %2) 2) [vw vh] [width height])
+     :section (* 20 length)
+     :block   (* 63 offset)
+     :row     (* 1.5 length)
+     :group   (* 5 offset)
+     :offset  offset
+     :weight  weight
+     :length  length}))

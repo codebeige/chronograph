@@ -7,8 +7,9 @@
 (defn clear []
   (q/background 255 0))
 
-(defn draw [{:keys [margin weight length offset group row block section marks]}]
+(defn draw [{:keys [margin section block row group offset weight length marks]}]
   (clear)
+  (q/no-fill)
   (q/stroke 57 7 13)
   (q/stroke-weight weight)
   (q/stroke-cap :square)
