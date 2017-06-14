@@ -7,9 +7,23 @@
 (defn clear []
   (q/background 255 0))
 
-(defn draw [{:keys [margin section block row group offset weight length marks]}]
+(defn draw [{:keys [block
+                    clock
+                    font-size
+                    group
+                    length
+                    margin
+                    marks
+                    offset
+                    row
+                    section
+                    time
+                    weight]}]
   (clear)
-  (q/no-fill)
+  (q/fill 197 186 182)
+  (q/text-font (q/create-font "serif" font-size))
+  (q/text-align :center :center)
+  (apply q/text (into [time] clock))
   (q/stroke 57 7 13)
   (q/stroke-weight weight)
   (q/stroke-cap :square)

@@ -12,12 +12,14 @@
         weight         (/ width 460)
         length         (* 7.4 weight)
         offset         (* 2.5 weight)]
-    {:box     [width height]
-     :margin  (map #(/ (- %1 %2) 2) [vw vh] [width height])
-     :section (* 20 length)
-     :block   (* 63 offset)
-     :row     (* 1.5 length)
-     :group   (* 5 offset)
-     :offset  offset
-     :weight  weight
-     :length  length}))
+    {:block     (* 63 offset)
+     :box       [width height]
+     :clock     (map #(/ % 2) [vw vh])
+     :font-size (* 2 length)
+     :group     (* 5 offset)
+     :length    length
+     :margin    (map #(/ (- %1 %2) 2) [vw vh] [width height])
+     :offset    offset
+     :row       (* 1.5 length)
+     :section   (* 20 length)
+     :weight    weight}))

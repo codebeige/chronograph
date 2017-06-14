@@ -11,4 +11,8 @@
   (assoc (dimensions/init w h) :marks []))
 
 (defn tick [state]
-  (assoc state :marks (marks/take (current-count))))
+  (assoc state
+         :marks
+         (marks/take (current-count))
+         :time
+         (time/clock)))
