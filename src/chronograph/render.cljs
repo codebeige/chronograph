@@ -9,7 +9,7 @@
 
 (defn draw [{:keys [margin weight length offset group row block section marks]}]
   (clear)
-  (q/stroke 0)
+  (q/stroke 57 7 13)
   (q/stroke-weight weight)
   (q/stroke-cap :square)
   (doseq [[s b r g i] marks]
